@@ -1,0 +1,91 @@
+---
+title: "data notes and outline for NE historical disturbances project"
+author: "Randy Swaty for Celeste Basken"
+date: "10/23/2020"
+output:
+  html_document:
+    number_sections: no
+    theme: journal
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: yes
+
+---
+<style>
+body {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #000000;
+    background-color: #ffffff;
+}
+</style>
+---
+
+## This document...
+serves to orient you to the data contained in the "rawData.csv" file, provide some reading/exploration ideas and propose an outline to share out historical disturbance regimes for the NE United States.
+
+## The data
+The [LANDFIRE program](www.landfire.gov) is a multi-agency federal program that maps vegetation, disturbance and fire characteristics for the United States.  To develop the rawData.csv file I used:
+
+1. [LANDFIRE Biophysical Settings (BpS) Data](https://www.landfire.gov/bps.php).  This data maps *where* the ecosystems of the US would have been just prior to European settlement. 
+2. [LANDFIRE Biophysical Settings Models](https://www.landfire.gov/bps-models.php).  These models include annual historical disturbance rates for the Biophysical Settings.
+3. [LANDFIRE Succession Class Data](https://www.landfire.gov/sclass.php).  This data maps where "developmental stages" of each BpS are *today*.  I used this to map where "natural" areas remain by essentially "subtracting" the agricultural and urban lands from the BpS data.
+
+There are 10 fields in the dataset (which was developed, cleaned and formatted by Anna Wright and Randy Swaty):
+
+1. bpsName: what each BpS (historical ecosystem) is called.  Each 7 digit number is comprised of a 2 digit map zone (see map [here](leafletSIM2carto.html)) and a 5 digit code for each BpS.  Any BpS can be mapped in multiple map zones.
+2. bpsNumber: unique value given to each BpS
+3. groupVeg: a lumped or simplified classification of the BpSs
+4. acresTotal: the number of acres mapped for any bpsNumber (i.e., for each BpS per map zone)
+5. acresLeft: is acresTotal minus areas converted to agricultural or urban land uses
+6. percentLeft: equals (acresLeft/acresTotal)*100
+7. disturbance: list of ecological perturbations modeled by LANDFIRE.  Note-some are "summary labels".  For example, "NonFireDisturbances" summarizes disturbances such as Wind/Weather/Stress.  Some of these disturbances will need to be removed for charts, etc.
+8. percentDisturbed: equals annual probability*100.  I removed the annual probability field which was imported from BpS model run results.
+9. acresDisturbed: equals acresTotal*percentDisturbed
+10. acresDisturbedLeft: equals acresLeft*percentDisturbed
+
+## Reading
+In addition to skimming the links above, skimming a couple papers/sites might be useful:
+
+1. https://rswaty.github.io/MIEcosystemExplorer/dash.html . On the "Looking Back" tab there are links to descriptions that might be useful.  Perhaps just look at a few that interest you.
+2. [Demise of Fire and "Mesophyication" of Forests in the Eastern United States by Greg Nowacki and Marc Abrams.](https://www.conservationgateway.org/Documents/The%20Demise%20of%20Fire%20and%20Nowacki%20mesophication%20of%20forests%20in%20the%20eastern%20US.pdf)
+
+
+## Outline...or at least some ideas
+The following information is to start a conversation and get some ideas going.  I really want to hear YOUR ideas too!
+
+### Audience
+We can develop anything we want to put anywhere we want, which means we can do what we want, but that we have to make a decision! Some ideas include:
+1. General public...we post something somewhere that almost anyone could find, if they wanted to
+2. Nature Conservancy members.  We develop something that one of my colleagues posts on a TNC website for example.
+3. Fire managers.  I'm thinking we could post a link to your product in the [Fire Learning Network Networker](https://www.conservationgateway.org/ConservationPractices/FireLandscapes/FireLearningNetwork/FLNNetworker/Pages/fln-networker.aspx).  
+4. Your ideas here
+
+### How
+We can deliver the information in whichever way is most interesting to you:
+1. Website
+2. Slideshow
+3. dashboard (like the one above)
+4. Online document
+5. Video !?!
+6. one nice sweet infographic (kinda like a poster)  see https://www.r-bloggers.com/2015/02/r-how-to-layout-and-design-an-infographic/ and https://www.pauloldham.net/infographics/ (look at bottom for examples)
+
+### Messages
+
+* there was a lot of disturbance in the Northeast historically...way more than you'd think by looking at disturbance (at least fire) today.  Note-there is a lot of logging I think
+* we can look at disturbance by ecosystem...
+* with a little more work we can compare disturbance today to historic
+*  your ideas here!
+
+
+
+
+
+
+
+
+
+
+
