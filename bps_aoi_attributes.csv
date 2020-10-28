@@ -1,0 +1,33 @@
+,ID,COUNT,BPS_NAME,GROUPNAME,GROUPVEG,acres,hectare,rel_percent
+1,1269,6054626,Mixedgrass Prairie,Bluebunch Wheatgrass-Big Bluestem-Little Bluestem-2,Grassland,1346516.41,544916.34,39.10174735
+2,1278,5398493,Ponderosa Pine Woodland and Savanna - Low Elevation Woodland,Ponderosa Pine-Bur Oak-1,Conifer,1200595.944,485864.37,34.86433503
+3,1279,1978197,Ponderosa Pine Woodland and Savanna - Savanna,Ponderosa Pine-Fragrant Sumac-1,Conifer,439940.4229,178037.73,12.77551401
+4,1250,395701,Highland White Spruce Woodland,White Spruce-1,Conifer,88001.7841,35613.09,2.555500625
+5,1267,321775,Northern Rocky Mountain Lower Montane-Foothill-Valley Grassland,Rough Fescue-Bluebunch Wheatgrass-2,Grassland,71561.03745,28959.75,2.078074641
+6,1262,281400,Rocky Mountain Lower Montane-Foothill Shrubland,Serviceberry-Mountain Snowberry-Rockspirea-1,Shrubland,62581.85359,25326,1.817326405
+7,1265,279981,Inter-Mountain Basins Big Sagebrush Steppe,Wyoming Big Sage-Wheatgrass-4,Shrubland,62266.27558,25198.29,1.808162275
+8,1276,265445,Western Great Plains Floodplain Systems,Eastern Cottonwood-Sandbar Willow-Green Ash-3,Riparian,59033.547,23890.05,1.714286452
+9,1249,124034,Rocky Mountain Aspen Forest and Woodland,Quaking Aspen-4,Hardwood,27584.49761,11163.06,0.801031497
+10,1257,122374,Inter-Mountain Basins Aspen-Mixed Conifer Forest and Woodland,Quaking Aspen-Subalpine Fir-Douglas Fir-3,Hardwood-Conifer,27215.3225,11013.66,0.790310951
+11,1274,118323,Rocky Mountain Montane Riparian Systems,Black Cottonwood-Narrowleaf Willow-3,Riparian,26314.40178,10649.07,0.764148942
+12,11,38169,Open Water,Open Water,Open Water,8488.58127,3435.21,0.246501534
+13,1270,23834,Rocky Mountain Subalpine-Montane Mesic Meadow,Fleabane-Lupine-4,Grassland,5300.55401,2145.06,0.153923801
+14,1263,18262,Northern Rocky Mountain Montane-Foothill Deciduous Shrubland,Serviceberry-Common Snowberry-Rocky Mountain Maple-4,Shrubland,4061.371038,1643.58,0.11793893
+15,1280,11325,Western Great Plains Wooded Draw and Ravine,Snowberry-Skunkbrush-2,Shrubland,2518.619374,1019.25,0.073138669
+16,1272,10363,Western Great Plains Shortgrass Prairie,Blue Grama-Buffalo Grass-2,Grassland,2304.675724,932.67,0.066925919
+17,31,8371,Barren-Rock/Sand/Clay,Barren-Rock/Sand/Clay,Barren-Rock/Sand/Clay,1861.665588,753.39,0.054061263
+18,1273,7599,Inter-Mountain Basins Greasewood Flat,Greasewood-Shadscale-5,Shrubland,1689.97692,683.91,0.049075563
+19,1271,7486,Western Great Plains Sand Prairie,Sand Bluestem-Prairie Sandreed-2,Grassland,1664.846325,673.74,0.048345791
+20,1253,6929,Southern Rocky Mountain Ponderosa Pine Woodland,Ponderosa Pine-1,Conifer,1540.972507,623.61,0.044748595
+21,1268,4509,Northern Rocky Mountain Subalpine-Upper Montane Grassland,Green Needlegrass-Idaho Fescue-4,Grassland,1002.777462,405.81,0.029119846
+22,1248,3180,Western Great Plains Sparsely Vegetated Systems,Sparsely Vegetated,Sparse,707.2149765,286.2,0.020536951
+23,1247,1892,Rocky Mountain Alpine/Montane Sparsely Vegetated Systems,Sparsely Vegetated,Sparse,420.7706716,170.28,0.01221884
+24,1261,889,Shrubland,Snowberry-Skunkbrush-2,Shrubland,197.7088409,80.01,0.005741305
+25,1266,513,Inter-Mountain Basins Montane Sagebrush Steppe,Mountain Sagebrush-Bluebunch Wheatgrass-Idaho Fescue-4,Shrubland,114.0884538,46.17,0.003313036
+26,1264,313,Southern Rocky Mountain Ponderosa Pine Savanna,Ponderosa Pine-1,Conifer,69.60952442,28.17,0.002021404
+27,1277,113,Middle Rocky Mountain Montane Douglas-fir Forest and Woodland,Douglas Fir-Ninebark-3,Conifer,25.13059508,10.17,0.000729772
+28,1251,74,Rocky Mountain Foothill Limber Pine-Juniper Woodland,Limber Pine-Rocky Mountain Juniper-3,Conifer,16.45720386,6.66,0.000477904
+29,1252,64,Southern Rocky Mountain Dry-Mesic Montane Mixed Conifer Forest and Woodland,Douglas Fir-White Fir-1,Conifer,14.23325739,5.76,0.000413322
+30,1258,38,Inter-Mountain Basins Curl-leaf Mountain Mahogany Woodland and Shrubland,Curlleaf Mountain Mahogany-Mountain Big Sagebrush-3,Shrubland,8.450996575,3.42,0.00024541
+31,1254,12,Rocky Mountain Subalpine Dry-Mesic Spruce-Fir Forest and Woodland,Engelmann Spruce-Subalpine Fir-4,Conifer,2.668735761,1.08,7.75E-05
+32,1260,1,Wyoming Basins Dwarf Sagebrush Shrubland and Steppe,Wyoming Threetip Sage-Low Sage-5,Shrubland,0.222394647,0.09,6.46E-06

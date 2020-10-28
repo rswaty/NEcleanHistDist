@@ -1,0 +1,33 @@
+---
+title: "to do"
+author: "Randy Swaty"
+date: "10/28/2020"
+output:
+  html_document:
+    number_sections: no
+    theme: journal
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: yes
+
+---
+<style>
+body {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #000000;
+    background-color: #ffffff;
+}
+</style>
+---
+
+## Getting started.  28 Oct 2020.  
+
+I think some nice, clean summary charts to start would be valuable and suggest that first you make a new datasheet where you have removed all rows where disturbance is AlternativeSuccession, NonFireDisturbances, NonReplacementFire, etc.  Then try making these: 
+
+* a horizonal bar chart with disturbances on the vertical axis and acres on the horizontal axis
+* ditto above, but with percentages
+* a grouped bar, where the "clusters" of bars are groupVeg, and the size of the bars is based on acres (or percent) of the different disturbance types
+

@@ -1,0 +1,79 @@
+---
+title: "example charts"
+author: "Randy Swaty"
+date: "10/28/2020"
+output:
+  html_document:
+    number_sections: no
+    theme: journal
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      toc_collapsed: yes
+
+---
+<style>
+body {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #000000;
+    background-color: #ffffff;
+}
+</style>
+---
+
+
+```{r}
+library(tidyverse)
+library(scales)
+```
+
+## Example of summarizing and making a clean horizontal bar chart.  Data and code by Myles Walimaa.
+
+
+```{r message=FALSE, warning=FALSE, fig.width=10, fig.height=7}
+# read bps attribute table .csv and summarize
+bpsname <- read.csv(file = "bps_aoi_attributes.csv") %>%
+  group_by(BPS_NAME) %>%
+  summarize(acres = sum(acres),
+            hectare = sum(hectare),
+            rel_percent = sum(rel_percent)) %>%
+  arrange(desc(rel_percent)) %>%
+  top_n(n = 10, wt = rel_percent)
+
+# plot
+ggplot(data = bpsname, aes(x = BPS_NAME, y = rel_percent)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Top 10 Historical Ecosystems", 
+       subtitle = "Area dominated by fire adapted types", 
+       caption = "Source: LANDFIRE Biophysical Settings", 
+       x = "", y = "Percent")+
+  scale_x_discrete(limits = rev(bpsname$BPS_NAME), labels = wrap_format(30)) +
+  coord_flip() +
+  theme_bw()+ 
+  theme(axis.text=element_text(size=12))
+```
+
+
+## Grouped Bar
+I don't make these much and don't have great examples, but here's a starter ugly one you can improve!
+
+```{r}
+
+rawData <- read_csv("rawData.csv")
+ggplot(rawData) +
+  # add bar for each discipline colored by gender
+  geom_bar(aes(x = groupVeg, y = acresDisturbed, fill = disturbance),
+           stat = "identity", position = "dodge") +
+  coord_flip()+
+  # name axes and remove gap between bars and y-axis
+  scale_y_continuous("Acres", labels = comma) +
+  scale_x_discrete("") +
+  # remove grey theme
+  theme_classic(base_size = 18) 
+
+```
+
+
+
