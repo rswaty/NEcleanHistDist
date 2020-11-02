@@ -75,5 +75,85 @@ ggplot(rawData) +
 
 ```
 
+## Trying to make cleaned dataset with only fire disturbances
+Celeste here, Nov 1 2020
 
+It seems like the easiest way would be to only keep the rows that we want instead of deleting all of those that aren't fire. I think the disturbances that fit under 'fire' would be Mixed Fire, Non-Replacement Fire, Replacement Fire, and Surface Fire. I want to delete all other responses under the 'disturbance' category.
 
+```{r}
+library(readr)
+rawData <- read_csv("~/Desktop/r/Cleaned NEHistDist/NEcleanHistDist/rawData.csv")
+View(rawData)
+
+fireDisturbances <- rawData %>% filter(
+  disturbance == "SurfaceFire" | disturbance == "ReplacementFire" 
+  | disturbance == "NonReplacementFire" | disturbance == "MixedFire"
+)
+
+# basically making each type of disturbance its own dataframe, just for simplicity's sake
+replacementFire <- fireDisturbances %>% filter(
+  disturbance == "ReplacementFire" )
+nonreplacementFire <- fireDisturbances %>% filter(
+  disturbance == "NonReplacementFire" )
+surfaceFire <- fireDisturbances %>% filter(
+  disturbance == "SurfaceFire" )
+mixedFire <- fireDisturbances %>% filter(
+  disturbance == "MixedFire" )
+
+## time to create a data frame with two columns: the types of disturbances and the affected acres 
+typeByAcreDisturbance <- data.frame("Type" = c("Mixed Fire", "Non-Replacement Fire", "Replacement Fire", "Surface Fire"),
+           "AcresDisturbed" = c(sum(mixedFire$acresDisturbed), sum(nonreplacementFire$acresDisturbed), 
+                                 sum(replacementFire$acresDisturbed), sum(surfaceFire$acresDisturbed)))
+
+  # stealing code from Randy's bar graph and trying to apply it to this data set
+ggplot(data = typeByAcreDisturbance, aes(x = Type, y = AcresDisturbed)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Totals Acres Disturbed by Fire", 
+       subtitle = "Impact of different types of fires in Northeast forests", 
+       caption = "Source: LANDFIRE Biophysical Settings", 
+       x = "Type of Fire", y = "Acres total")+
+  scale_x_discrete(limits = rev(typeByAcreDisturbance$Type), labels = wrap_format(30)) +
+  coord_flip() +
+  theme_bw()+ 
+  theme(axis.text=element_text(size=12))
+
+````
+
+And above we should (hopefully) have a graph of the type of fire and how many total acres it affected! Now I'm going to attempt the same thing, except this time for percentages of total acres that were disturbed. Since I've already made each type of fire its own dataframe, the process should be much simpler this time. I also don't want the sum, I want the average so the process will be slightly different.
+
+````{r}
+
+## time to create a data frame with two columns: the types of disturbances and the affected acres 
+typeByPercentDisturbance <- data.frame("Type" = c("Mixed Fire", "Non-Replacement Fire", "Replacement Fire", "Surface Fire"),
+           "PercentDisturbed" = c(mean(mixedFire$percentDisturbed), mean(nonreplacementFire$percentDisturbed), 
+                                 mean(replacementFire$percentDisturbed), mean(surfaceFire$percentDisturbed)))
+# stealing Randy's graph yet again
+ggplot(data = typeByPercentDisturbance, aes(x = Type, y = PercentDisturbed)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average Percent of Acres Disturbed by Fire", 
+       subtitle = "Impact of different types of fires in Northeast forests", 
+       caption = "Source: LANDFIRE Biophysical Settings", 
+       x = "Type of Fire", y = "Average Percent Disturbance")+
+  scale_x_discrete(limits = rev(typeByAcreDisturbance$Type), labels = wrap_format(30)) +
+  coord_flip() +
+  theme_bw()+ 
+  theme(axis.text=element_text(size=12))
+
+````
+
+Above should be the graph with the average percent of acres disturbed by our four types of fire. Below I'm going to make a bar graph of the different types of fire and how many acres they affect, organized by the vegetation group.
+
+````{r}
+
+rawData <- read_csv("rawData.csv")
+ggplot(fireDisturbances) +
+  # add bar for each discipline colored by gender
+  geom_bar(aes(x = groupVeg, y = acresDisturbed, fill = disturbance),
+           stat = "identity", position = "dodge") +
+  coord_flip()+
+  # name axes and remove gap between bars and y-axis
+  scale_y_continuous("Acres", labels = comma) +
+  scale_x_discrete("") +
+  # remove grey theme
+  theme_classic(base_size = 18) 
+````
