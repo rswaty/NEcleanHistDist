@@ -6,7 +6,7 @@ output:
   html_document:
     number_sections: no
     theme: journal
-    toc: yes
+    toc: no
     toc_depth: 3
     toc_float:
       toc_collapsed: yes
@@ -108,10 +108,10 @@ typeByAcreDisturbance <- data.frame("Type" = c("Mixed Fire", "Non-Replacement Fi
   # stealing code from Randy's bar graph and trying to apply it to this data set
 ggplot(data = typeByAcreDisturbance, aes(x = Type, y = AcresDisturbed)) +
   geom_bar(stat = "identity") +
-  labs(title = "Totals Acres Disturbed by Fire", 
-       subtitle = "Impact of different types of fires in Northeast forests", 
+  labs(title = "Total Acres Disturbed by Fire", 
+       subtitle = "Impact of different types of fires in Northeast ecosystems", 
        caption = "Source: LANDFIRE Biophysical Settings", 
-       x = "Type of Fire", y = "Acres total")+
+       x = "", y = "Acres total")+
   scale_x_discrete(limits = rev(typeByAcreDisturbance$Type), labels = wrap_format(30)) +
   coord_flip() +
   theme_bw()+ 
@@ -119,7 +119,7 @@ ggplot(data = typeByAcreDisturbance, aes(x = Type, y = AcresDisturbed)) +
 
 ````
 
-And above we should (hopefully) have a graph of the type of fire and how many total acres it affected! Now I'm going to attempt the same thing, except this time for percentages of total acres that were disturbed. Since I've already made each type of fire its own dataframe, the process should be much simpler this time. I also don't want the sum, I want the average so the process will be slightly different.
+And above we should have a graph of the type of fire and how many total acres it affected. Now I'm going to attempt the same thing, except this time for percentages of total acres that were disturbed. Since I've already made each type of fire its own dataframe, the process should be much simpler this time. I also don't want the sum, I want the average so the process will be slightly different.
 
 ````{r}
 
@@ -131,9 +131,9 @@ typeByPercentDisturbance <- data.frame("Type" = c("Mixed Fire", "Non-Replacement
 ggplot(data = typeByPercentDisturbance, aes(x = Type, y = PercentDisturbed)) +
   geom_bar(stat = "identity") +
   labs(title = "Average Percent of Acres Disturbed by Fire", 
-       subtitle = "Impact of different types of fires in Northeast forests", 
+       subtitle = "Impact of different types of fires in Northeast ecosystems", 
        caption = "Source: LANDFIRE Biophysical Settings", 
-       x = "Type of Fire", y = "Average Percent Disturbance")+
+       x = "", y = "Average Percent Disturbance")+
   scale_x_discrete(limits = rev(typeByAcreDisturbance$Type), labels = wrap_format(30)) +
   coord_flip() +
   theme_bw()+ 
@@ -149,11 +149,29 @@ rawData <- read_csv("rawData.csv")
 ggplot(fireDisturbances) +
   # add bar for each discipline colored by gender
   geom_bar(aes(x = groupVeg, y = acresDisturbed, fill = disturbance),
-           stat = "identity", position = "dodge") +
+           stat = "identity", width=1, position = "dodge") +
   coord_flip()+
   # name axes and remove gap between bars and y-axis
-  scale_y_continuous("Acres", labels = comma) +
+  scale_y_continuous("Total Acres", labels = wrap_format(30)) +
   scale_x_discrete("") +
   # remove grey theme
-  theme_classic(base_size = 18) 
+  theme_classic(base_size = 14) 
+````
+
+## Working on more charts
+Celeste back again, Nov 6 2020
+
+I'm going to make that same chart again, but stacked. It looks like the only change is in the position argument.
+````{r}
+rawData <- read_csv("rawData.csv")
+ggplot(fireDisturbances) +
+  # add bar for each discipline colored by gender
+  geom_bar(aes(x = groupVeg, y = acresDisturbed, fill = disturbance),
+           stat = "identity", width=0.5, position = "stack") +
+  coord_flip()+
+  # name axes and remove gap between bars and y-axis
+  scale_y_continuous("Total Acres", labels = wrap_format(30)) +
+  scale_x_discrete("") +
+  # remove grey theme
+  theme_classic(base_size = 14)
 ````
