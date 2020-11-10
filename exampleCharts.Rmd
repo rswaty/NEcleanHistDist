@@ -80,9 +80,9 @@ Celeste here, Nov 1 2020
 
 It seems like the easiest way would be to only keep the rows that we want instead of deleting all of those that aren't fire. I think the disturbances that fit under 'fire' would be Mixed Fire, Non-Replacement Fire, Replacement Fire, and Surface Fire. I want to delete all other responses under the 'disturbance' category.
 
-```{r}
+```{r message=FALSE, warning=FALSE, fig.width=10, fig.height=7}
 library(readr)
-rawData <- read_csv("~/Desktop/r/Cleaned NEHistDist/NEcleanHistDist/rawData.csv")
+rawData <- read_csv("rawData.csv")
 View(rawData)
 
 fireDisturbances <- rawData %>% filter(
